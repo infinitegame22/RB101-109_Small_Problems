@@ -1,12 +1,9 @@
 a = %w(a b c d e)
-#puts a.fetch(7) #error index 7 outside of array bounds
+# With the single Integer argument index, returns the element at offset index:
+puts a.fetch(7) # outside of array bounds Index Error
+
+#With the single Integer argument index, returns the element at offset index:
 puts a.fetch(7, 'beats me') #beats me
-puts a.fetch(7) { |index| index**2 } #49
 
-#fetch(index) → element
-#fetch(index, default_value) → element
-#fetch(index) {|index| block } → element
-
-#This shows that #fetch can be called with an index argument,
-#an index and a default argument, an index argument and a block
-#Note 
+#With argument index and a block, returns the element at offset index if index is in range (and the block is not called); otherwise calls the block with index and returns its return value:
+puts a.fetch(7) { |index| index **2 } #49
