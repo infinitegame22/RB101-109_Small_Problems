@@ -1,6 +1,12 @@
-def age(name)
-  age_in_years = rand(20..200)
-  puts "#{name} is #{age_in_years} years old!"
-end
+=begin
+- P Input: none
+Output: Random age of Teddy
+- E
+-D 
+- A 
+Print string that randomly generates a number between
+20 and 200
+=end
 
-age('Teddy')
+rand_age = rand(20..200)
+puts "Teddy is #{rand_age} years old!"

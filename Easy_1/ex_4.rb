@@ -84,17 +84,6 @@ end
 
 count_occurrences(vehicles)
 
-# numbers = {
-#   high:   100,
-#   medium: 50,
-#   low:    10
-# }
-
-# low_numbers = numbers.select do |key, value|
-#   value < 25
-# end
-
-# p low_numbers
 
 # **Problem**
 # For a given array, count the ocurrances of each word and output the result
@@ -137,3 +126,43 @@ vehicles = [
 ]
 
 p count_occurrences(vehicles)
+
+def count_occurrences(array)
+  occurrences = {}
+
+  array.uniq.each do |element|
+    occurrences[element] = array.count(element)
+  end
+
+  occurrences.each do |element, count|
+    puts "#{element} => #{count}"
+  end
+end
+
+# Case sensitive
+require 'pry'
+def count_occurrences(arr)
+  labels = arr.uniq
+
+  labels.each do |label|
+    puts "#{label} => #{arr.count(label)}"
+  end
+end
+
+vehicles = [
+  'car', 'car', 'truck', 'car', 'SUV', 'suv', 'truck', 'motorcycle', 'motocycle', 'car', 'truck'
+]
+
+count_occurrences(vehicles)
+
+# Case insensitive
+def count_occurrences_insenstive(arr)
+  arr_downcase = arr.map { |element| element.downcase }
+  labels = arr_downcase.uniq
+
+  labels.each do |label|
+    puts "#{label} => #{arr_downcase.count(label)}"
+  end
+end
+puts
+count_occurrences_insensitive(vehicles)

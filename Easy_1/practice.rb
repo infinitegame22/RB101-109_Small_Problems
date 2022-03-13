@@ -5,7 +5,7 @@ Output: boolean
 E - below
 D - if/else conditional
 A - Pass an integer into the method as an argument
-Check integer for value - negative or positive
+CHeck integer for value - negative or positive
   - if < 0, adjust to positive by multiplying by -1
 Check if integer is odd by comparing to x % 2 != 0.
   -IF odd return true

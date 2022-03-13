@@ -1,21 +1,25 @@
-# puts "Enter the length of the room in meters:"
-# room_length = gets.chomp.to_i
+=begin
+P - Input: ask user for length and width
+Output: area of romm in square meters and feet
+E - 
+D - 
+A - 
+Ask user for input of dimensions of room
+Calculate area of room - multiply length by width
+Calculate this total and multiply by 10.7639
+=end
+def room_dimensions(length, width)
+    length * width
+end
 
-# puts "Enter the width of the room in meters:"
-# room_width = gets.chomp.to_i
+def meters_to_feet(area)
+    area * 10.7639
+end
 
-# puts "The area of the room is #{room_length * room_width} square meters (#{room_length * room_width * 10.7639} square feet)."
+puts "Enter the length of the room in meters:"
+length = gets.chomp.to_i
 
-SQMETERS_TO_SQFEET = 10.7639    
+puts "Enter the width of the room in meters:"
+width = gets.chomp.to_i
 
-puts '==> Enter the length of the room in meters: '
-length = gets.to_f
-
-puts '==> Enter the width of the room in meters: '
-width = gets.to_f
-
-square_meters = (length * width).round(2)
-square_feet = (square_meters * SQMETERS_TO_SQFEET).round(2)
-
-puts "The area of the room is #{square_meters} " + \
-    "square meters (#{square_feet} square feet)."
+puts "The area of the room is #{room_dimensions(length, width)} square meters (#{meters_to_feet(room_dimensions(length, width))} square feet)."
