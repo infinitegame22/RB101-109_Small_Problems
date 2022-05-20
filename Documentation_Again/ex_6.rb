@@ -1,4 +1,6 @@
 5.step(to: 10, by: 3) { |value| puts value }
-# => 5
-# => 8
-start at 5, increase by 3, until 10
+ #Invokes the given block with the sequence
+ # of numbers starting at num, incremented by 
+ #step (defaulted to 1) on each call.
+# 5
+# 8 
