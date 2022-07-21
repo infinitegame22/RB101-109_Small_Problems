@@ -19,6 +19,17 @@ def string_to_integer(string)
   sum
 end
 
+integer_strings = { 0 => "0", 1 => "1" ...,4 => "4" }
+arr = [4,3,2,1]
+arr.each_with_index do |integer, index|
+  arr[index] = integer_strings[integer] => "2" 
+  # ["4", "3", "2", "1"].
+end 
+arr. join
+#crfeate a hash where key is the integer and value is the 
+# then figure out how to get th string value associated 
+# with the integer  
+
 string_to_signed_integer('4321') == 4321
 string_to_signed_integer('-570') == -570
 string_to_signed_integer('+100') == 100

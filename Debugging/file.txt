@@ -1,0 +1,10 @@
+functions --
+indentation matters
+
+GLOBAL SCOPE = X
+-- fun1 -> calls fun2
+----fun2 2 levels deep does some math
+
+a baton passes when the next person does their work.
+Whoever tells you to do work, give back the baton, "I'm done", 
+and then passes it on.
