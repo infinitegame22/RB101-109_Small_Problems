@@ -26,7 +26,7 @@ def word_sizes(string)
       char_count[key] = 1 # char_count is hash, access like an array 1 goes into hash.
     end
   end
-  char_count
+  char_count 
 end
 
 p word_sizes('Four score and seven.') == { 3 => 1, 4 => 1, 5 => 1, 6 => 1 }

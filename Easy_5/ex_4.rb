@@ -18,6 +18,13 @@ def swap(sentence)
       .join(' ')
 end
 
+def swap(sentence)
+  sentence.split(' ')
+    .map {|word| swap_letter(word)}
+      .join(' ')
+end
+
+
 p swap('Oh what a wonderful day it is') == 'hO thaw a londerfuw yad ti si'
 p swap('Abcde') == 'ebcdA'
 p swap('a') == 'a'

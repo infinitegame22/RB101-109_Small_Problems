@@ -5,7 +5,15 @@ def time_of_day(minutes)
   "#{'%02d' % (hours%24)}:#{'%02d' % minutes}"
 end
 
+def time_of_day(minutes)
+  hours, minutes = minutes.divmod(60)
+  "#{'%02d' % (hours%24)}:#{'%02d' % minutes}"
+end
 
+def time_of_day(minutes)
+  hours, minutes = minutes.divmod(60)
+  "#{'%02d' % (hours%24)}:#{'%02d' % minutes}"
+end
 
 puts time_of_day(0) == "00:00"
 puts time_of_day(-3) == "23:57"

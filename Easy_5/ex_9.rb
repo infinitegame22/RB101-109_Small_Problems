@@ -32,17 +32,66 @@ characters
 
 D: 
 
-A: initialize an empty array
+A: initialize an index counter
+initialize an empty string
+loop over string while the index  is less than the length of 
 
 iterate over the string
-check 1 character, then check to see if next is the same
+need new object in which to store
   IF it is the same add the duplicate substring to the empty array
 Check next character
 How would you find the best way to iterate
 return string with duplicates removed 
+
+How do I do this with each_char or String#chars?
 =end
-crunch('ddaaiillyy ddoouubbllee') == 'daily double'
-crunch('4444abcabccba') == '4abcabcba'
-crunch('ggggggggggggggg') == 'g'
-crunch('a') == 'a'
-crunch('') == ''
+
+def crunch(text)
+  index = 0
+  crunch_text = ''
+  while index <= text.length - 1
+    crunch_text << text[index] unless text[index] == text[index + 1]
+    index += 1
+  end
+  crunch_text
+end
+
+# def crunch(string)
+#   clean_arr = []
+
+#   string.split(//).map do |chr|
+#     next if clean_arr.last == chr
+#     clean_arr << chr
+#   end
+
+#   clean_arr.join
+# end
+
+# JD's answer
+
+def crunch(string)
+  string.each_char.with_object('') do |letter, new_string|
+    new_string << letter unless new_string[-1] == letter
+  end
+end
+
+
+p crunch('ddaaiillyy ddoouubbllee') #== 'daily double'
+p crunch('4444abcabccba') #== '4abcabcba'
+p crunch('ggggggggggggggg') #== 'g'
+p crunch('a') #== 'a'
+p crunch('') #== ''
+
+=begin
+This one isn't too bad.  We have to go through each character
+of this string and check for any consecutive duplicate
+characters. The plan is to build the return value, character
+by character, in the string reference by `crunch_text`. With
+that in mind, we use `index` to track our position in `text`.
+
+On each iteration of our loop, we check whether the indexed
+character is equal to the next character in `text`.  If the
+characters are the same, we do nothing but advance the index
+to the next character in `text`. Otherwise, we append the
+current character to `crunch_text` and increment the index.
+=end
