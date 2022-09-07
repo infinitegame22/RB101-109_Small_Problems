@@ -1,29 +1,28 @@
-def repeat(string, integer)
-  integer.times do
-    puts string
-  end
-end
-
-repeat('Hello', 3)
-
 =begin
-P Input: string, times_printed
-OUtput: Printing the string times_printed times
+Write a method that takes one argument, a positive integer, and returns a list of the digits in the number.
 
-E - print the string hello 3 times on different lines
-Does the positive integer include 0?
-If string is dragon and integer is 0, call repeat method and 
-no output
-D - string
-A - accept the number of times we want to print string in method
-print string as many 
-x * print string
---slow down through the problem, PEDAC is powerful pyramid.
-C
+Input: positive integer
+Output: array
+
+GOAL: break the number in to pieces and store it in a list
+
+Requirements:
+- positive integer
+
+E: 12345 => [1, 2, 3, 4, 5]
+375290 => [3, 7, 5, 2, 9, 0]
+
+D: integer => string => array => integer
 =end
-
-def repeat(string, times_printed)
-  times_printed.times { puts string }
+def digit_list(integer)
+  integer.to_s.chars.map(&:to_i)
+  # array.map do |char|
+  #   char.to_i
+  # end
 end
-repeat('Hello', 3)
-repeat('Dragon', 0)
+ 
+
+puts digit_list(12345) == [1, 2, 3, 4, 5]     # => true
+puts digit_list(7) == [7]                     # => true
+puts digit_list(375290) == [3, 7, 5, 2, 9, 0] # => true
+puts digit_list(444) == [4, 4, 4]             # => true

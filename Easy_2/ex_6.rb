@@ -1,149 +1,42 @@
-# value = 1
-# while value <= 99
-#   puts value
-#   value += 2
-# end
+=begin
+Print all odd numbers from 1 to 99, inclusive, to the console, with each number on a separate line.
 
-# # arr = (1..99)
-# # 1.upto(99) { |i| print i}
+initialize empty array
+starting at one, iterate through the range
+if the integer is odd, add it to your array
+otherwise skip over it.
+output each odd integer to the console
+=end
 
-# numbers = []
-
-# 1.upto(99) {|i| numbers << i}
-
-# numbers.each do |num|
-#   puts num if num.odd?
-# end
-
-# numbers = []
-
-# 1.upto(99) {|i| numbers << i}
-
-# numbers.each do |num|
-#   puts num if num.odd?
-# end
-
-# numbers = []
-
-# 1.upto(99) {|i| numbers << i }
-
-# numbers.each do |num|
-#   puts num if num.odd?
-# end
-
-# numbers = []
-
-# 1.upto(99) {|i| numbers << i}
-
-# numbers.each do |num|
-#   puts num if num.odd?
-# end
-
-# numbers = []
-
-# 1.upto(99) {|i| numbers << i}
-
-# numbers.each do |num|
-#   puts num if num.odd?
-# end 
-
-# numbers = (1..99).to_a
-
-# numbers.select! {|num| num.odd? }
-
-# puts numbers
-
-# numbers = (1..99).to_a
-
-# numbers.select! {|num| num.odd?}
-# puts numbers
-
-# numbers = (1..99).to_a
-
-# numbers.select! { |num| num.odd?}
-# puts numbers
-
-# numbers = (1..99).to_a
-# numbers.select! { |num| num.odd? }
-# puts numbers
-
-# numbers = (1..99).to_a
-# numbers.select! {|num| num.odd? }
-# puts numbers
-#recursion
-def odds(num)
-  return if num == 0
-  odds(num - 1)
-  puts num if !num.even?
-end
-
-odds(99)
-
-def odds(num)
-  return if num == 0
-  odds(num - 1)
-  puts num if !num.even?
-end
-
-odds(99)
-
-#using a for loop
-for number in (1...100)
-  if number % 2 == 0
-    next
-  else
-    puts number
+def print_odd_num(begin_int, end_int)
+  array = []
+  (begin_int..end_int).each do |num|
+    if num.odd?
+      array << num
+    end
   end
+  puts array
 end
 
-numbers = (1..99).to_a
-numbers.each{|num|puts num if num.odd?}
+puts print_odd_num(1, 99)
 
-numbers = (1..99).to_a
-numbers.each { |num| puts num if num.odd? }
+# LS solution
 
-numbers = (1..99).to_a
-numbers.each { |num| puts num if num.odd? }
-
-numbers = []
-1.upto(99) {|i| numbers << i}
-numbers.select{|num| puts num if num.odd?}
-
-array = (0..99).to_a
-puts array.select {|i| i.odd?}
-
-a = []
-0.upto(99) { |i| i % 2 != 0 ? a << i : nil }
-
-array = (0..99).to_a
-puts array.select {|i| i.odd?}
-
-a = []
-0.upto(99) { |i| i % 2 != 0 ? a << i : nil }
-puts a
-
-1.upto(99) do |i|
-  i.odd? ? (puts i) : nil
+value = 1
+while value <= 99
+  puts value
+  value += 2
 end
 
-1.step(to: 99, by: 2) {|i| puts i}
-
-puts Array.new(100) {|i| i}.select { |num| num.odd? }
-
-def numbers(range)
-  range.each {|x| puts x if x.odd?}
+value = 1
+while value <= 99
+  puts value
+  value += 2
 end
 
-numbers(1..99)
-
-def numbers(range)
-  range.each {|x| puts x if x.odd?}
+value = 1
+while value <= 99
+  puts value
+  value += 2
 end
 
-numbers(1..99)
-
-def numbers(range)
-  range.each {|x| puts x if x.odd?}
-end
-
-numbers(1..99)

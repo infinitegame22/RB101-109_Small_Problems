@@ -25,7 +25,7 @@ p before_midnight('24:00') == 0
 
 # midnight is 0, after midnight, add minutes
 # before midnight could be 0 or 24, 0, 23, 22, 21
-# modulus works with 24, remainder alwayss
+# modulus works with 24, remainder always
 # Ruby divides negative integers - other languages dividing
 # negative outputs different results
 # clock, 12 is straight up, origin of 12 same starting point

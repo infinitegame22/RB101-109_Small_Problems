@@ -47,7 +47,7 @@ end
 
 # Lucas'
 def staggered_case(string, ignore_non_alphabetic=true)
-  index_index_counter = 0
+  index_counter = 0
 
   string.chars.each_with_object("") do |char, new_string|
     index_counter.even? ? new_string << char.upcase : new_string << char.downcase
@@ -59,6 +59,7 @@ def staggered_case(string, ignore_non_alphabetic=true)
     end
   end
 end
+
 =begin
 This solution is very similar to the previouse solution;
 the only difference is that we need to avoid changing 
@@ -69,7 +70,7 @@ We use a simple regular expression with the `/i` flag
   A flag is an optional parameter to a regex that modifies
   its behavior of searching. A flag changes the default 
   searching behavior of a regular expression. It makses a
-  regex search in a different way. A flage is denoted using
+  regex search in a different way. A flag is denoted using
   a single lowercase alphabetic character.
 
   https://learnbyexample.github.io/Ruby_Regexp/modifiers.html
@@ -78,3 +79,7 @@ We use a simple regular expression with the `/i` flag
 staggered_case('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
 staggered_case('ALL CAPS') == 'AlL cApS'
 staggered_case('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 nUmBeRs'
+
+str = 'cast'
+print "matched 's'" if str.match(/s/)
+print "matched 'x'" if str.match(/x/)

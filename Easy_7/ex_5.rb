@@ -32,6 +32,7 @@ def staggered_case(string)
   end
   result
 end
+
 =begin
 This solution simply iterates through the string while 
 building another String one character at a time, either
@@ -163,8 +164,6 @@ def staggered_case(string, upper=true)
   end
   result
 end
-
-
 
 staggered_case('I Love Launch School!') == 'I LoVe lAuNcH ScHoOl!'
 staggered_case('ALL_CAPS') == 'AlL_CaPs'

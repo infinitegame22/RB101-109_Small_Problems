@@ -1,5 +1,3 @@
-require 'pry'
-
 # def sum_of_sums(array)
 #   total_sum = 0
 #   array.each_with_index do |number1, idx|
@@ -18,7 +16,17 @@ def sum_of_sums(numbers)
   numbers.each do |num|
     accumulator += num
     sum_total += accumulator
-    binding.pry
+  end
+  sum_total
+end
+
+def sum_of_sums(numbers)
+  sum_total = 0
+  accumulator = 0
+
+  numbers.each do |num|
+    accumulator += num
+    sum_total += accumulator
   end
   sum_total
 end
@@ -93,6 +101,10 @@ def sum_of_sums(array)
 end
 
 #refactored Stephen's
+def sum_of_sums(array)
+  array.each_with_object([0]) { |num, array| array << num + array.last }.sum
+end
+
 def sum_of_sums(array)
   array.each_with_object([0]) { |num, array| array << num + array.last }.sum
 end

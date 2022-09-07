@@ -34,6 +34,19 @@ def swapcase(string)
   characters.join
 end
 
+def swapcase(string)
+  characters = string.chars.map do |char|
+    if char =~ /[a-z]/
+      char.upcase
+    elsif char =~ /[A-Z]/
+      char.downcase
+    else
+      char
+    end
+  end
+  characters.join
+end
+
 =begin
 In our solution, we iterate through each character in the
 string passed into `swapcase`. If the character is lowercase
@@ -61,8 +74,9 @@ def swapcase(str)
 end
 
 # Lucas'
-LOWERCASE = ("a".."z")
-UPPERCASE = ("A".."Z")
+
+LOWERCASE = ('a'..'z')
+UPPERCASE = ('A'..'Z')
 
 def swapcase(string)
   string.chars.each_with_object("") do |character, empty_string|
@@ -70,7 +84,6 @@ def swapcase(string)
     when LOWERCASE then character.upcase
     when UPPERCASE then character.downcase
     else character
-    end
   end
 end
 
@@ -79,8 +92,6 @@ end
 def swapcase(str)
   str.chars.map {|chr| chr == chr.downcase ? chr.upcase : chr.downcase}.join
 end
-
-
 
 swapcase('CamelCase') == 'cAMELcASE'
 swapcase('Tonight on XYZ-TV') == 'tONIGHT ON xyz-tv'

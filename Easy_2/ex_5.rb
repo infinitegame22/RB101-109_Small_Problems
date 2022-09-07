@@ -1,209 +1,31 @@
-print "What's your name? "
-name = gets.chomp
+=begin
+Write a program that will ask for user's name.  The program will then greet the user. If the user writes "name!" then the computer yells back to the uesr.
 
-name.end_with?("!") ? (puts "HELLO #{name.chop.upcase}. WHY ARE YOU SCREAMING?")
-                      (puts "Hello #{name}.")
+input: username
+output: uppercase string
 
-puts "What is your name?"
-  name = gets.chomp
-  if name == 'name!'
-    puts "Don't play games with me! Your real name?!"
-  else
-    puts "Greetings #{name}!"
-  end
+Goal: when using a '!' returns uppercase letters in the computer's response
 
-  # program that will ask for user name
-  # return: greet the user
-  # if the usr writes "name!" then the computer yell back to the usr!
-  # use STring#chomp or String#chop
+E: What is your name? Bob
+Hello Bob.
 
-  puts "What is your name?"
-  name = gets.chomp
-  if name.end_with?('!')
-    name = name.chop.upcase
+What is your name? Bob!
+HELLO BOB. WHY ARE WE SCREAMING?
 
-    def prompt (x)
-      puts "=> #{x}"
-    end
+D: string --> upcase string
 
-    prompt("What is your name?")
-    name = gets.chomp
-    if name.chars.include?("!")
-      name.gsub!("!", ".")
-      prompt("HELLO #{name.upcase} WHY ARE WE SCREAMING?")
-    else
-      prompt("Hello #{name}.")
-    end
+A: prompts for user input of a username
+User inputs name
+if the name has an exclamation mark
+  -outputs a string in uppercase letters that greets the user
+otherwise this will output a greeting to the user in mixed case.
 
-    puts "What is your name?"
-    name = gets.chomp!
+=end
 
-    if name[-1] == '!'
-      name = name.chop!
-      puts("HELLO #{name.upcase}. WHY ARE WE SCREAMING?")
-    else
-      puts("Hello #{name}.")
-
-puts "What is your name?"
-name = gets.chomp.capitalize
-
-# Slightly different approach using regex.
-
-if /!/ =~ name
-  name.upcase!.chop!
-  puts "HELLO #{name}. WHY ARE WE SCREAMING?"
+p "What is your name?"
+answer = gets.chomp
+if answer.include?('!')
+  puts "HELLO #{answer.upcase}. WHY ARE WE SCREAMING?"
 else
-  puts "Hello #{name}."
-end.
-
-puts "What is your name?"
-name = gets.chomp
-
-def scream?(word)
-  word.end_with?('!') ? "HELLO #{word.upcase.chop}. WHY ARE WE SCREAMING?"
+  puts "Hello #{answer}."
 end
-
-p scream?(name)
-
-def greeting()
-  puts "What is your name?"
-  name = gets.chomp.to_s
-  if name.include?('!')
-    puts "HELLO #{name.upcase.chop}. WHY ARE WE SCREAMING?"
-  else
-    puts "Hello #{name}"
-  end
-end
-
-greeting()
-
-print "What is your name?"
-name = gets.chomp
-
-should_yell = !name.delete_suffix!('!').nil?
-greeting = "Hello #{name}."
-
-if should_yell
-  greeting = "#{greeting} WHY ARE WE SCREAMING?".upcase
-end
-
-puts greeting
-
-print "What is your name?"
-name = gets.chomp
-
-should_yell = !name.delete_suffix!('!').nil?
-greeting = "Hello #{name}."
-
-if should_yell
-  greeting = "#{greeting} WHY ARE WE SCREAMING?".upcase
-end
-
-puts greeting
-
-print "What is your name?"
-name = gets.chomp
-
-should_yell = !name.delete_suffix('!').nil?
-greeting = "Hello #{name}."
-
-if should_yell
-  greeting = "#{greeting} Why are we screaming?"
-end
-
-puts greeting
-
-print "What is your name?"
-name = gets.chomp.downcase
-
-if name.chop == name.chomp("!")
-  puts "HELLO #{name.chop.upcase}. WHY AE WE SCREAMING?"
-else
-  puts "Hello #{name.capitalize}."
-end
-
-def ask_name
-  print "What is your name? "
-  name = gets.chomp
-
-  case name
-  when "#{name.chop}!"
-    puts "HELLO #{name.chop.upcase}. WHY ARE WE SCREAMING?"
-  else
-    puts "Hello #{name}."
-  end
-end
-
-puts ">> What is your name?"
-name = gets.chomp
-
-if name.end_with?('!')
-  puts ">> HELLO #{name.chop.upcase}!!! WHY ARE WE SCREAMING?"
-else
-  puts ">> Hello #{name}."
-end
-
-Kernel.puts("What is your name?")
-name = Kernel.gets().chomp!()
-
-if name.end_with?("!")
-  name.chop!()
-  Kernel.puts("HELLO, #{name.upcase()}. WHY ARE WE SCREAMING?")
-else
-  Kernel.puts("Hello, #{name.capitalize()}")
-end
-
-#String#delete_suffix! helps take care of two actions at once:
-# Check if 'name' ends with '!'
-# - If so, delete the '!' so we don't print it
-
-def greeting(name)
-  return "HELLO #{name.upcase}. WHY ARE WE SCREAMING?" if name.delete_suffix!("!")
-   "Hello #{name}."
-end
-
-print "What is your name?"
-name = gets.chomp.strip # Disregard new lines and whitespaces
-
-puts greeting(name)
-
-#Why does it work?
-# Because #delete_suffix! returns its caller if "!" is found, 
-
-def yelling
-  puts "What's your name?"
-  name = gets.chomp
-  if name.chars.last == '!'
-    puts "HI #{name.upcase}. WHY ARE WE SCREAMING?"
-  else
-    puts "hi #{name}"
-  end
-end
-
-def yelling puts "What's your name?"
-  name = gets.chomp
-  if name.chars.last == '!'
-    puts "HI #{name.upcase}. WHY ARE WE SCREAMING?"
-  else
-    puts "hi #{name}"
-  end
-end
-
-
-print 'What is your name '
-name = gets.chomp
-
-puts name.end_with('!') ? "HELLO #{name.upcase.chop}. WHY ARE WE SCREAMING?"
-
-def greet(name)
-  puts 'Hello #{name}.'
-end
-
-def shout_greet(name)
-  name.chop!
-  puts 'HELLO #{name.upcase}'
-
-  def greet(name)
-    puts 'Hello #{name}.
-    
-    '

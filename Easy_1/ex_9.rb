@@ -1,75 +1,24 @@
-def sum(number)
-  number.to_s.chars.map(&:to_i).reduce(:+)
-end
+=begin
+Write a method that takes one argument, a positive integer, and returns the sum of its digits.
 
-def sum(number)
-  number.to_s.chars.map(&:to_i).reduce(:+)
-end
+input: integer
+output: integer
 
-def sum(number)
-  number.to_s.chars.map(&to_i).reduce(:+)
-end
+E: 23 => 2 + 3 => 5
+496 => 4 + 9 + 6 => 19
 
-def sum(number)
-  number.to_s.chars.map(&to_i).reduce(:+)
-end
+D: integer => string => array of strings => array of integers
 
-def sum(number)
-  number.to_s.chars.map(&to_i).reduce(:+)
-end
+A: change integer to string
+break string into characters array
+iterate over the array and adjust the characters to integers
+sum the array
+return the sum
+=end
 
-def sum(number)
-  number.to_s.chars.map(&to_i).reduce(:+)
+def sum(integer)
+  integer.to_s.chars.map(&:to_i).sum
 end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
-def sum(number)
-  number.to_s.chars.map(&_i).reduce(:+)
-end
-
 
 puts sum(23) == 5
 puts sum(496) == 19
