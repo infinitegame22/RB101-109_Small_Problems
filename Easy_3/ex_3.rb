@@ -1,19 +1,18 @@
-def user_input
-  print "Please write word or multiple words: "
-  str = gets.chomp
-  str
-end
+=begin
+Write a program that asks user for input of word/multiple words
+which returns the number of characters
 
-def char_count(str)
-  count = 0
-  for x in str.split(' ')
-    count = x.length + count
-  end
-  puts "There are #{count} characters in \"#{str}\"."
-end
+Rules:
+- spaces don't count as characters
 
-def call_methods
-  char_count(user_input)
-end
 
-call_methods
+=end
+
+p 'Please write word or multiple words: '
+answer = gets.chomp
+count_of_chars = answer.delete(' ').size
+puts "There are #{count_of_chars} characters in \"#{answer}\"."
+
+answer.delete(' ').size
+answer.delete(' ').size
+answer.delete(' ').size

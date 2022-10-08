@@ -1,16 +1,27 @@
-def palindrome?(string)
-  string == string.reverse
-end
+=begin
+Write method that returns true if the string passed as an
+argument is a palindrome, false otherwise.
+
+This time, method should be case insensitive
+
+=end
 
 def real_palindrome?(string)
-  string = string.downcase
-  string = string.gsub(/[^0-9a-z]+/, '')
+  string = string.downcase.delete('^a-z0-9')
   palindrome?(string)
 end
 
-puts real_palindrome?('madam') == true
-puts real_palindrome?('Madam') == true           # (case does not matter)
-puts real_palindrome?("Madam, I'm Adam") == true # (only alphanumerics matter)
-puts real_palindrome?('356653') == true
-puts real_palindrome?('356a653') == true
-puts real_palindrome?('123ab321') == false
+def real_palindrome?(string)
+  string = string.downcase.delete('^a-z0-9')
+  palindrome?(string)
+end
+
+def palindrome?(str)
+  str == str.reverse
+end
+
+def real_palindrome?(str)
+  test = str.gsub(/[^\w]/, "").downcase
+  palindrome?(test)
+end
+

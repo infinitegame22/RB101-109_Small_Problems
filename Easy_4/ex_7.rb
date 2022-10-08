@@ -1,38 +1,60 @@
 =begin
-Integer constructor - type of method, creates a new object.
-Class is a blueprint, use the blueprint with constructor.
-Dog class with constructor
-dog class has Name property
-call constructor method, create new object
-x = 'string' , created a string object
-String#to_i is a method
-blueprint give functionality
-hash = Hash.new is the same as hash = {}
-beauty of constructors - infinite methods
-https://ruby-doc.org/core-3.0.2/Integer.html
-Constructor does pre-processing
-statically typed language - Java
 
-input - String of digits (assume all numeric, and positive/negative
-doesn't matter)
-outputs - string to integer
+The String#to_i method converts a string of numeric characters (including an optional plus or minus sign) to an Integer. String#to_i and the Integer constructor (Integer()) behave similarly. In this exercise, you will create a method that does the same thing.
 
-1 * 10 ^ 0
-2 * 10 ^ 1
-3 * 10 ^ 2
-4 * 10 ^ 3
+Write a method that takes a String of digits, and returns the appropriate number as an integer. You may not use any of the methods mentioned above.
 
-1234
+For now, do not worry about leading + or - signs, nor should you worry about invalid characters; assume all characters will be numeric.
 
-compare 
+You may not use any of the standard conversion methods available in Ruby to convert a string to a number, such as String#to_i, Integer(), etc. Your method should do this the old-fashioned way and calculate the result by analyzing the characters in the string.
+
+=begin pedac
+
+*************Problem***************************
+Goal: write my own `to_i` method
+initial input: string of digits
+overall output: integer
+
+explicit requirements:
+
+implicit requirements:
+
+questions:
+
+*************Examples and Test cases************
+++restate all test cases given
+++add edge cases, 0 and empty:
+string_to_integer('4321') == 4321
+string_to_integer('570') == 570
+*************Data Structure********************
+++the steps the data takes in between input 
+++and output listed above
+string --> array --> integer
+************Algorithm*************************
+A. Main Method
+  1. convert string to an array of characters
+  2. iterate over array and 
+  3.
+B Helper Method 1
+  1.
+  2.
+  3.
+C. Helper Method 2
+  1.
+  2.
+  3.
+
+***********SCRATCHPAD********** 
+
 =end
+
+DIGITS = { '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9 }
+
 def string_to_integer(string)
-  reverse_chars_array = string.reverse.chars # => [1, 2, 3, 4]
-  sum = 0
+  digits = string.chars.map { |char| DIGITS[char]}
 
-  reverse_chars_array.each_with_index {|element, index| sum += element.to_i * 10**index}
-  sum
-end
+  value = 0
+  digits.each { |digit| value = 10 * value + digit}
 
-puts string_to_integer('4321') == 4321
-puts string_to_integer('570') == 570
+string_to_integer('4321') == 4321
+string_to_integer('570') == 570
