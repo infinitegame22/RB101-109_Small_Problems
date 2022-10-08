@@ -23,9 +23,24 @@ D:
 
 A: fibonacci series is an array (how do i initialize fibonacci 
 series?)
+add 1 to the index to return the Fibonacci index
+
+make a Fibonacci index
+
+
+
+
 
 
 =end
+fibonacci = Hash.new{ |h,k| h[k] = k < 2 ? k : h[k-1] + h[k-2] }
+
+
+
+
+
+
+
 
 def find_fibonacci_index_by_length(number_digits)
   first = 1
