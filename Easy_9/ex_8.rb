@@ -1,58 +1,41 @@
 =begin
-Create a method that takes two integers as arguments. The
-first argument is a count, and the second is the first 
-number of a sequence that my method will create. The method
-should return an array that contains the same number of
-elements as the count argument, while the values of each
-element will be multiples of the starting number.
+=begin pedac
 
-Assume that the count argument will always have a value of
-0 or greater, while the starting number can be any integer
-value.  If the count is 0, an empty list should be returned.
+*************Problem***************************
+Goal: 
+initial input: two integers, first is a count, and second is first number of a sequence.
+overall output: array, same number of elements as count 
 
-GOAL:
-- give the method a range 
-  - the first integer gives the amount of elements in the array
-  - the second integer indicates 
+explicit requirements:
 
-Requirements:
-- 
+implicit requirements:
 
-input: two integers
-output: array
+questions:
 
+*************Examples and Test cases************
+++restate all test cases given
+++add edge cases, 0 and empty:
+
+*************Data Structure********************
+++the steps the data takes in between input 
+++and output listed above
+
+************Algorithm*************************
+A. Main Method
+  1. 
+  2. 
+  3.
+B Helper Method 1
+  1.
+  2.
+  3.
+C. Helper Method 2
+  1.
+  2.
+  3.
+
+***********SCRATCHPAD********** 
 
 =end
-#LS solution 1
-def sequence(count, first)
-  sequence = []
-  number = first # number => 1
 
-  count.times do # => 5.times do
-    sequence << number # => [1, 2]
-    number += first # => number = number + first => 1 + 1 => 2
-  end
-
-  sequence
-end
-
-# LS solution 2
-def sequence(count, first)
-  (1..count).map { |value| value * first }
-end
-
-sequence(5, 1) == [1, 2, 3, 4, 5]
-sequence(4, -7) == [-7, -14, -21, -28]
-sequence(3, 0) == [0, 0, 0]
-sequence(0, 1000000) == []
-
-=begin
-In the first solution, we begin by setting the scene. We
-initialize a `sequence` variable as an empty array and a
-`number` variable that we set to the value of `first`, as
-it will be the first element of the sequence.
-
-We then use the `Integer#times` method. It will execute
-the content of the block the number of times specified by
-the integer. 
 =end

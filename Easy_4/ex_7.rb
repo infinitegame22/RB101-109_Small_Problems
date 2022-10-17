@@ -47,14 +47,54 @@ C. Helper Method 2
 ***********SCRATCHPAD********** 
 
 =end
+# def string_to_integer(string)
+#   int_array = string.chars.map(&:to_i)
+#   power = 0
+#   result = 0
+#   int_array.reverse.each do |int| 
+#     result += int * 10**power
+#     power += 1
+#   end
+#   result
+# end
 
-DIGITS = { '0' => 0, '1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5, '6' => 6, '7' => 7, '8' => 8, '9' => 9 }
+# p string_to_integer('4321') == 4321
+# p string_to_integer('570') == 570
 
-def string_to_integer(string)
-  digits = string.chars.map { |char| DIGITS[char]}
+DIGITS = { 'a' => 10 , 'b' => 11, 'c' => 12, 'd'=> 13, 'e' => 14, 'f' => 15}
 
-  value = 0
-  digits.each { |digit| value = 10 * value + digit}
+# def hexadecimal_to_integer(string)
+#   power = 0
+#   result = 0
 
-string_to_integer('4321') == 4321
-string_to_integer('570') == 570
+#   int_array = string.chars.map do |char|
+#     char = char.downcase
+#     if DIGITS.key?(char)
+#       char = DIGITS[char]
+#     else
+#       char.to_i
+#     end
+#   end
+#   int_array.reverse.each do |int| 
+#     result += int * (16 ** power)
+#     power += 1
+#   end
+#   result
+# end
+
+
+# p hexadecimal_to_integer('4D9f') == 19871
+
+def binary_to_integer(string)
+  int_array = string.chars.map(&:to_i)
+  power = 0
+  result = 0
+  int_array.reverse.each do |int| 
+    result += int * 2**power
+    power += 1
+  end
+  result
+end
+
+p binary_to_integer('1010') == 10
+p binary_to_integer('10000000') == 128

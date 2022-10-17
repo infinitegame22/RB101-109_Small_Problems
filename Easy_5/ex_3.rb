@@ -33,8 +33,3 @@ p before_midnight('24:00') == 0
 # (subtracting - origin 24)
 # integer modulus 12, 0 % 12 = 0 - clockwise
 # 12 % 12 = 0  - counterclockwise
-
-array.map(&:to_i) #=> high order function
-
-x = 5 
-&x # => give me the address of this, use this address

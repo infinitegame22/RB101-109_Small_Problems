@@ -42,17 +42,17 @@
 
 password = nil
 
-def set_password(password)
+def set_password
   puts 'What would you like your password to be?'
-  password = gets.chomp
+  new_password = gets.chomp
+  new_password
 end
 
 def verify_password(password)
-  p password
   puts '** Login **'
   print 'Password: '
   input = gets.chomp
-  p input
+  
   if input == password
     puts 'Welcome to the inside!'
   else
@@ -61,7 +61,7 @@ def verify_password(password)
 end
 
 if !password
-  set_password(password)
+  password = set_password
 end
 
 p verify_password(password)

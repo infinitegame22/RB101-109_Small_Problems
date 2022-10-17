@@ -1,41 +1,45 @@
 =begin
-Write a method that takes a string argument, and returns `true` if all of the
-alphabetic characters inside the string are uppercase, `false` otherwise.
-Characters that are not alphabetic should be ignored.
+=begin pedac
 
-GOAL:
-- check if the string argument contains all uppercase characters the method will
-return true.
-- otherwise the method will return false.
+*************Problem***************************
+Goal: method takes a string argument, and returns true if all
+of the alphabetic characters in the string are uppercase, false
+otherwise. Ignore non alphabetic characters 
+initial input: string 
+overall output: boolean value
 
-input: string
-output: boolean
+explicit requirements:
+- ignore non alphabetic characters
+- return true if all characters are capitalized
+implicit requirements:
 
-E: 't' => false
-'T' => true
-'Four Score' => false
-'FOUR SCORE' => true
-'4SCORE!' => true
-'' => true
+questions:
 
-D: string iteration
-boolean return
+*************Examples and Test cases************
+++restate all test cases given
+++add edge cases, 0 and empty:
+'t' --> false, not uppercase
+'T' --> true, uppercase
+'Four Score' --> false, not enough uppercase
+'FOUR SCORE' --> true, all uppercase
+'4SCORE!' --> true, all uppercase
+'' --> true, empty
+*************Data Structure********************
+++the steps the data takes in between input 
+++and output listed above
 
-A: convert string to array of characters
-iterate over array
-if character is downcase 
-  return false
-else
-  keep checking 
+************Algorithm*************************
+A. Main Method
+  1. check if all of the letters in the string are uppercase
+  2. 
+  3.
+
+***********SCRATCHPAD********** 
+
 =end
 
-#LS answer
 def uppercase?(string)
-  if string == string.upcase
-    true
-  else
-    false
-  end
+  string == string.upcase
 end
 
 p uppercase?('t') == false
@@ -44,18 +48,3 @@ p uppercase?('Four Score') == false
 p uppercase?('FOUR SCORE') == true
 p uppercase?('4SCORE!') == true
 p uppercase?('') == true
-
-=begin
-The easiest way to solve a problem is to realize that the
-condition "all of the alphabetic characters...are uppercase"
-is true only if the string is not altered by converting
-it to all uppercase. Thus, all we need to is compare `string`
-with `string.upcase`.
-
-Food for thought: in our examples, we show that `uppercase?`
-should return `true` if the argument is an empty string.
-Would it make sense to return `false` instead?
-=end
-def uppercase?(str)
-  !(str =~ /[a-z]/)
-end

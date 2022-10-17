@@ -1,95 +1,58 @@
 =begin
-Write a method named `include?` that takes an array and a 
-search value as arguments. This method should return `true`
-if the search value is in the array, `false` if it is not. 
-Don't use the `Array#include?` method in my soluiton
 
-Input: array
-output: boolean
+https://launchschool.com/exercises/860cfef1
 
-Requirements:
-- do not use the `Array#include?`
-- 
+Write a method named include? that takes an Array and a search value as arguments. This method should return true if the search value is in the array, false if it is not. You may not use the Array#include? method in your solution.
 
-D: 
+=begin pedac
 
-A: search array for search value
-iterate over the array
-check each element to see if it matches the search value
-  IF match return true
-else
-  return false
+*************Problem***************************
+Goal: intaking an array and integer search value and returning true if the array argument contains the integer search value, and false otherwise
+initial input: array, integer
+overall output: boolean object
+
+explicit requirements:
+- cannot use the Array#include? method
+implicit requirements:
+- an empty array will never contain the search Object
+
+questions:
+- are we dealing with strings?
+*************Examples and Test cases************
+++restate all test cases given
+++add edge cases, 0 and empty:
+include?([1,2,3,4,5], 3) == true
+include?([1,2,3,4,5], 6) == false
+include?([], 3) == false
+include?([nil], nil) == true
+include?([], nil) == false
+*************Data Structure********************
+++the steps the data takes in between input 
+++and output listed above
+array, integer --> boolean object
+************Algorithm*************************
+A. Main Method
+  1. iterate over the array Argument
+    a. on each iteration, check if the element is equivalent to the integer Argument
+      i. if equivalent, return true
+      ii. else return false
+  2. 
+  3.
+
+
+***********SCRATCHPAD********** 
+
 =end
-
-# def include?(array, search_value)
-#   loop do |element|
-#     if element == search_value
-#       return true
-#     else
-#       return false
-#     end
-#   end
-# end
-
-# LS 
-
-def include?(array, value)
-  !!array.find_index(value)
-end
-
-def include?(array, value)
-  array.each {|element| return true if value == element}
-  false
-end
-
-def include?(array, value)
-  !!array.find_index(value)
-end
-
-def include?(array, value)
-  array.each {|element| return true if value == element}
-  false
-end
-
-
-# Lucas'
+require 'pry'
 def include?(array, search_value)
-  array.any?(search_value)
-end
-
-def include?(array, test)
-  array.each do |element|
-    return true if element == test
+  array.any? do |element|
+    element == search_value
+    binding.pry
   end
-  false
 end
 
-def include?(array, value)
-  !!array.index(value)
-end
-
-def include?(array, value)
-  array.any?(value)
-end
-
-# Carlos Mackenzie
-def include?(array, number)
-  array = array << number
-  return true if array.count(number) == 2
-  false
-end
-
-=begin
-The first method uses `Array#find_index` to scan the array for
-the first element that has the specified value.  `find_index`
-returns the index number of the found element, which will always
-have a truthy value, or `nil` if no such element is present.  We
-then use !! to force the return value to `true` or `false` in
-accordance iwth the implied promise of the `?` in `include?`.
-=end
-
-p include?([1,2,3,4,5], 3) #== true
-p include?([1,2,3,4,5], 6)#== false
-p include?([], 3) #== false
-p include?([nil], nil) #== true
-p include?([], nil) #== false
+p include?([1,2,3,4,5], 3)  == true
+p include?([1,2,3,4,5], 6)  == false
+p include?([], 3) == false
+p include?([nil], nil) == true
+p include?([], nil) == false
