@@ -12,40 +12,31 @@
 #   result_array
 # end
 
-# # Adam Dresher
+=begin
 
-# frozen_string_literal: true
-# #  https://stackoverflow.com/questions/37799296/ruby-what-does-the-comment-frozen-string-literal-true-do
+input: Array
+output: Array with elements reversed
 
+data structure:
+elements will be stored in a new Array
 
-# def reverse(arr)
-#   new_arr = []
-#   counter = arr.size
+algorithm:
+- initialize a new array variable
+- until the input array is empty
+- remove the last element of the input array 
+- add it to the new array 
+- return the new array
+=end
 
-#   loop do
-#     break if counter.empty?
+def reverse(input_array)
+  input_array.inject([], :unshift)
+end 
 
-#     counter -= 1
-#     new_arr << arr[counter]
-#   end
+p reverse([1,2,3,4]) # == [4,3,2,1]          # => true
+p reverse(%w(a b e d c)) # == %w(c d e b a)  # => true
+p reverse(['abc']) == ['abc']              # => true
+p reverse([]) == []                        # => true
 
-#   new_arr
-# end
-
-# # Jacob Taylor's answer
-
-# def reverse(array)
-#   counter = 0
-
-#   array.map do |_|
-#     counter -= 1
-#     array.fetch(counter) # `fetch` returns the element at offset index.
-#   end
-# end
-
-# def reverse(array)
-#   array.inject([], :unshift)
-# end
 
 
 
