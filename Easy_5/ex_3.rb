@@ -16,6 +16,15 @@ def before_midnight(formatted_time) # => 12:34
   minutes %= MINUTES_PER_DAY
 end
 
+MINUTES_PER_DAY = 1440
+
+def after_midnight(formatted_time)
+  array = formatted_time.split(':')
+  hours, minutes = array
+  minutes = hours.to_i * 60 + minutes.to_i
+  minutes %= MINUTES_PER_DAY
+end
+
 p after_midnight('00:00') == 0
 p before_midnight('00:00') == 0
 p after_midnight('12:34') == 754
