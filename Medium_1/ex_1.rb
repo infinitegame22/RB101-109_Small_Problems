@@ -1,53 +1,57 @@
 =begin
-Write a method that rotates an array by moving the first element to the end of the array.
-- The original array should not be modified.
+
+Write a method that rotates an array by moving the first element to the end of the array. The original array should not be modified.
 
 Do not use the method Array#rotate or Array#rotate! for your implementation.
 
-input: Array
-output : Array
+Goal: intake an array and rotate the array by moving the first element to the end of the array. 
+input: array
+output: array rotated
 
-Requirements:
-- don't use `rotate`
-- original array NO MUTATION!
+Rules:
+- do not use the methods rotate or rotate!
+- do not modify the original array
+- array can be made of integers and characters
 
-Example:
+D: input: array
+intermediate: storage array
+output: array
 
-rotate_array([7, 3, 5, 2, 9, 1]) == [3, 5, 2, 9, 1, 7]
-rotate_array(['a', 'b', 'c']) == ['b', 'c', 'a']
-rotate_array(['a']) == ['a']
+A:
+- initialize rotated_arr to empty array
+- iterate over the intake array -->[7, 3, 5, 2, 9, 1]
+  - save the element at 0 index to a variable called `zero_index` --> 7
+  - for any number that is not the 0 index
+    - next if index is equivalent to 0
+    - otherwise push the element into a new array - rotated_arr --> [3, 5, 2, 9, 1]
+    - push the `zero_index` element into the rotated_arr --> [3, 5, 2, 9, 1, 7]
+- return the rotated_arr
 
-x = [1, 2, 3, 4]
-rotate_array(x) == [2, 3, 4, 1]   # => true
-x == [1, 2, 3, 4]                 # => true
-
-D: array => Array
-
-A: iterate over the array
-   - working with a copy
- Save the first element into a variable - so it's not lost
- Assign last element to be the first
-assign the variable to be the first element
-
-Alternate A:
-  - Duplicate array as separate object
-  - remove first index Object
-  - place in back of array
 =end
-def rotate_array(array)
-  new_array = array.clone
-  first_index = new_array.shift
-  new_array << first_index
+
+def rotate_array(arr)
+  rotated_arr = []
+
+  zero_index = arr[0]
+
+  arr.each_with_index do |el, idx|
+    next if idx == 0
+    rotated_arr << el
+  end
+  rotated_arr << zero_index
 end
 
 
- p rotate_array([7, 3, 5, 2, 9, 1]) == [3, 5, 2, 9, 1, 7]
- p rotate_array(['a', 'b', 'c']) == ['b', 'c', 'a']
- p rotate_array(['a']) == ['a']
+def rotate_array(array)
+  array[1..-1] + [array[0]]
+end
 
+p rotate_array([7, 3, 5, 2, 9, 1])  == [3, 5, 2, 9, 1, 7]
+p rotate_array(['a', 'b', 'c'])     == ['b', 'c', 'a']
+p rotate_array(['a'])               == ['a']
 
- a = [1, 2]
+x = [1, 2, 3, 4]
+p rotate_array(x) == [2, 3, 4, 1]   # => true
+x == [1, 2, 3, 4]                 # => true
+p rotate_array([7, 3, 5, 2, 7, 9, 1])  == [3, 5, 2, 7, 9, 1, 7]
 
-a[0], a[-1] = a[-1], a[0]
-
-p a
