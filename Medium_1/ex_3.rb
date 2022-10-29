@@ -58,20 +58,20 @@ def max_rotation(num)
   num_array.join.to_i
 end
 
-turn num into an array of digits
-using a variable to index the start of the rotation
-until the index is equal to the last index
-  rotate array from index position
-    grab array elements using index for starting position to last element array[idx..]
-    shift the first element into last element array << (array.shift)
-    assign back to the original array elements using the index for start position
+# turn num into an array of digits
+# using a variable to index the start of the rotation
+# until the index is equal to the last index
+#   rotate array from index position
+#     grab array elements using index for starting position to last element array[idx..]
+#     shift the first element into last element array << (array.shift)
+#     assign back to the original array elements using the index for start position
 
-  array[5..] = array[5..-1]
-  array[5..]
-  [1, 2, 3, 4, 5, 6] = [5, 6]
+  # array[5..] = array[5..-1]
+  # array[5..]
+  # [1, 2, 3, 4, 5, 6] = [5, 6]
 
-  increase index position by 1
-convert num_array back to integer
+#   increase index position by 1
+# convert num_array back to integer
 
 p max_rotation(735291) == 321579
 p max_rotation(3) == 3

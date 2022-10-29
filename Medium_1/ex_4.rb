@@ -69,4 +69,26 @@ p one_thousand_lights(5)
 p one_thousand_lights(10)
 p one_thousand_lights(36)
 
+def switch_checker(num_switches)
+  switches = []
+  num_switches.times { |_| switches << false }
+
+  lights_on = []
+
+  # Runs through and toggles all approrpiate switches n amount of times
+  1.upto(num_switches) do |pass_number|
+    switches.each_with_index do |switch, index|
+      switches[index] = !switches[index] if (index + 1) % pass_number == 0
+    end
+  end
+  p switches
+  # Adds on switches to the final result array
+  switches.each_with_index do |switch, index|
+    switch_number = index + 1
+    lights_on << switch_number if switch
+  end
+
+  lights_on
+end
+
 

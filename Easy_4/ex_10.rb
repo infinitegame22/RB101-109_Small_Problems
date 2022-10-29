@@ -22,7 +22,7 @@ questions:
 ************Algorithm*************************
 A. Main Method
   1. use the integer_to_string method to return a string
-  2. if the last element in the integer converted to a digits array is a - 
+  2. if the last element in the integer converted to a digits array is a `-`
     a. return a string with a '-' in front of it
   3. when the element is 0, return 0
   4. otherwise add a + to the front of the string
@@ -36,12 +36,15 @@ def integer_to_string(integer)
 end
 
 def signed_integer_to_string(integer)
-  case integer <=> 0
-  when -1 then '-' + integer_to_string(-integer)
-  when 0 then integer_to_string(integer)
-  else        '+' + integer_to_string(integer)
-  end
-end
+  case integer <=> 1
+  when -1 then "-#{integer_to_string(-integer)}"
+  when +1 then "+#{integer_to_string(integer)}"
+  else        integer_to_string(integer)
+begin
+  
+
+
+
 
 
 # def signed_integer_to_string(number)

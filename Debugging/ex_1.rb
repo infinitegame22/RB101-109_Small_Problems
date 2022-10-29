@@ -100,3 +100,38 @@ until can't anymore in search.
   correctly.
 =end
 
+# Student answer
+def egyptian(rational)
+  denominator = 1
+  denom_arr = []
+  while rational > 0
+    n = Rational(1, denominator)
+    if rational - n >= 0
+      denom_arr << denominator
+      rational = rational - n
+    end
+    denominator += 1
+  end
+  denom_arr
+end
+
+def unegyptian(arr)
+  arr.map { |n| Rational(1, n) }.sum
+end
+ 
+# marcos' answer
+# marcos'
+def egyptian(rational)
+  result = []
+  counter = 1
+  until result.sum == rational
+    sample = Rational(1, counter)
+    result << sample if sample + result.sum <= rational
+    counter += 1
+  end
+  result.map { |num| num.denominator }
+end
+
+def unegyptian(array)
+  array.map { |num| Rational(1, num) }.sum
+end
