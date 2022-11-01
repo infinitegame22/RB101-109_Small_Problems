@@ -97,6 +97,13 @@ def crunch(string)
   end
 end
 
+def crunch(string)
+  string.each_char.with_object('') do |letter, new_string|
+    new_string << letter unless new_string[-1] == letter
+  end
+end
+
+def crunch(string)
 
 p crunch('ddaaiillyy ddoouubbllee') #== 'daily double'
 p crunch('4444abcabccba') #== '4abcabcba'

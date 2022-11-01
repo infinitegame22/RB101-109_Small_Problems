@@ -19,6 +19,23 @@ words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
   'fowl', 'veil', 'wolf', 'diet', 'vile', 'edit', 'tide',
   'flow', 'neon']
 
+hash = (words.each_with_object({}) do |word, hash|
+  key = word.split('').sort.join
+
+  if hash.has_key?(key)
+    hash[key] << word
+  else
+    hash[key] = [word]
+  end
+end
+)
+
+p hash.each {|k, v| p v }
+
+
+
+
+
 # words_hash = words.each_with_object(Hash.new []) do |word, hash|
 #   hash[word.chars.sort] += [word]
 # end
@@ -32,21 +49,21 @@ words =  ['demo', 'none', 'tied', 'evil', 'dome', 'mode', 'live',
   # ["f", "l", "o", "w"]=>["fowl", "wolf", "flow"]}
 
 #LS solution
-result = {}
+#result = {}
 
-words.each do |word|
-  key = word.split('').sort.join # => "demo"
-  if result.has_key?(key) # => if this key already exists
-    result[key].push(word) # => add the new word to the array
-  else
-    result[key] = [word]
-  end
-end
+# words.each do |word|
+#   key = word.split('').sort.join # => "demo"
+#   if result.has_key?(key) # => if this key already exists
+#     result[key].push(word) # => add the new word to the array
+#   else
+#     result[key] = [word]
+#   end
+# end
 
-result.each_value do |v|
-  puts "------"
-  p v
-end
+# result.each_value do |v|
+#   puts "------"
+#   p v
+# end
 
 =begin
 The trickiest of this problem is figuring out how to check if

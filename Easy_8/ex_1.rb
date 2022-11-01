@@ -20,16 +20,31 @@ E: [3, 5, 2])
     (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) # -> (36)
 
 A: 
-- intialize a sum variable to 0
+- initialize a sum variable to 0 >> sum = 0
 - iterate over the a range for the index using an index counter of some sort --> [3, 5, 2]
-- add the first element to the sum variable --> sum = arr[0]
-- add the first and second element together  --> temp_sum = arr[index] + arr[index + 1]
+- add the first element to the sum variable --> sum = arr[0] + 0
+ - add the first and second element together  --> temp_sum = arr[index] + arr[index + 1]
     --> store in another variable called temp_sum  
 - add temp_sum plus sum and store in sum
   --> temp_sum + sum = sum
 - return the sum 
 
 =end
+def sum_of_sums(arr)
+  sum = 0
+  arr.each do |num|
+    
+    sum += num
+  end
+end
+
+
+
+
+
+
+
+
 
 # test cases
 

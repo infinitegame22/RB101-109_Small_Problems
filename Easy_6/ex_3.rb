@@ -7,59 +7,67 @@ Computationally, the Fibonacci series is a very simple series, but the results g
 
 Write a method that calculates and returns the index of the first Fibonacci number that has the number of digits specified as an argument. (The first Fibonacci number has index 1.)
 
-Amy's version:
-Intake the number of digits in the Fibonacci number and return 
-the index of the number in the collection of Fibonacci numbers.
-The first number in the set has an index of 1.
+Goal: return the index of the first number in the fibonacci sequence that has the input integer length
+input: integer
+output: integer
 
-Input - integer
-Output - integer
+Rules:
+- first 2 numbers are 1 in the Fibonacci sequence
+- each subsequent number is the sum of the two previous numbers
+- the first fibonacci number has index 1
 
-E: find_fibonacci_index_by_length(2) == 7
-Fibonacci series => (1, 1, 2, 3, 5, 8, 13)
-              index 1^ 2 ^ 3^ 4^ 5^ 6^  7^
+E: 
+find_fibonacci_index_by_length(2) == 7          # 1 1 2 3 5 8 13
+               1 2 3 4 5 6 7 --> index 7 has 2 digits
+find_fibonacci_index_by_length(3) == 12         
+# 1 1 2 3 5 8 13 21 34 55 89 144
+  1 2 3 4 5 6 7  8  9  10  11 12  
+
+find_fibonacci_index_by_length(10) == 45
+find_fibonacci_index_by_length(100) == 476
+find_fibonacci_index_by_length(1000) == 4782
+find_fibonacci_index_by_length(10000) == 47847
 
 D:
+input: integer
+intermediate: array
+output: integer
 
-A: fibonacci series is an array (how do i initialize fibonacci 
-series?)
-add 1 to the index to return the Fibonacci index
 
-recursive Fibonacci number array
- - breaking something down until it hits a specific base case
- - mini calls go back to their parents 
+A:
+- intialize a 2 element array with the first two Fibonacci numbers called `fib_array`
+- continue adding the last two elements of the array and pushing that sum in until the input integer converted to a string's length is equal to the input integer
+- save integer input converted to string's length to a variable called `length`
+- add these two elements together >> fib_array[-1] + fib_array[-2]
+- push the resulting sum into the end of the `fib_array`
 
- while loop over fibonacci(n)
-    - always get a return value, check to see if it has the number of digits
-    - 
-create an array
-  - loop and add results to array
-  - find something with the length I want and look up its index
-  - 
-  
+- return the size of the fib_array
+
 =end
 
-def fibonacci(n)
-  n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
+def find_fibonacci_index_by_length(index_int)
+  fib_array = [1, 1]
+
+  until fib_array[-1].to_s.length == index_int
+    fib_array << fib_array[-1] + fib_array[-2]
+  end
+  fib_array.size
 end
-
-p fibonacci(2)
-
-# find_fibonacci_index_by_length(2) == 7          # 1 1 2 3 5 8 13
-# find_fibonacci_index_by_length(3) == 12         # 1 1 2 3 5 8 13 21 34 55 89 144
-# find_fibonacci_index_by_length(10) == 45
-# find_fibonacci_index_by_length(100) == 476
-# find_fibonacci_index_by_length(1000) == 4782
-# find_fibonacci_index_by_length(10000) == 47847
-
-# Jacob
 
 def find_fibonacci_index_by_length(number_of_digits)
-  sequence = [1, 1]
+  array = [1, 1]
 
-  until sequence.last.digits.size >= number_of_digits
-    sequence << sequence.last(2).sum
+  until array.last.digits.size >= number_of_digits
+    array << (array[-1] + array[-2])
   end
 
-  sequence.size
+  array.size
 end
+
+
+p find_fibonacci_index_by_length(2) == 7          # 1 1 2 3 5 8 13
+p find_fibonacci_index_by_length(3) == 12         # 1 1 2 3 5 8 13 21 34 55 89 144
+p find_fibonacci_index_by_length(10) == 45
+p find_fibonacci_index_by_length(100) == 476
+p find_fibonacci_index_by_length(1000) == 4782
+p find_fibonacci_index_by_length(10000) == 47847

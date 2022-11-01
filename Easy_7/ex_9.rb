@@ -3,7 +3,7 @@ Write a method that takes two Array arguments in which each Array contains a lis
 
 You may assume that neither argument is an empty Array.
 input: two arrays
-outpus: one array
+output: one array
 Rules: neiter argument is an empty array
 Iterate through the first array, use the map method because we need to return a new
 array, 
@@ -23,8 +23,13 @@ Initialize local variable to the return value of nested map below
 =end
 
 def multiply_all_pairs(arr1, arr2)
-  all_pairs = arr1.map do |i|
-                arr2.map { |j| i*j }
-              end
-  all_pairs.flatten.sort
+  product_array = []
+  arr1.each do |ele1|
+    arr2.each do |ele2|
+      product_array << ele1 * ele2
+    end
+  end
+  product_array.sort
 end
+
+p multiply_all_pairs([2, 4], [4, 3, 1, 2]) == [2, 4, 4, 6, 8, 8, 12, 16]

@@ -12,7 +12,23 @@ E: 'I Love Launch School!' == 'I lOvE lAuNcH sChOoL!'
 the characters don't count for toggling the desired case
   - 'I' then ' ' then lowercase letter
 
-D: iteration
+D: 
+input:string
+intermediate: array of characters
+output: string
+
+A: 
+input:string `str`
+- initialize `char_array` to reference the input string broken into characters
+- intialize variable `upcase_char` and set to true
+- iterate over char_array using char as parameter
+  - if character matches any alphabetical characters and `non_alpha_char` is set to false
+    - upcase the character
+    - push the upcased 
+  - otherwise push the character into the `char_arr`
+  
+
+
 
 A: initialize new string
 initialize new variable and assign it to `true`
@@ -58,6 +74,55 @@ def staggered_case(string, ignore_non_alphabetic=true)
       index_counter += 1
     end
   end
+end
+
+def staggered_case(string, ignore_non_alphabetic=true)
+  index_counter = 0
+
+  string.chars.each_with_object("") do |char, new_string|
+    index_counter.even? ? new_string << char.upcase : new_string << char.downcase
+
+    if ignore_non_alphabetic
+      index_counter += 1 unless char.match(/[\W_\d]/)
+    else
+    index_counter += 1
+    end
+  end
+end
+
+def staggered_case(string)
+  result = ''
+  need_upper = true
+  string.chars.each do |char|
+    if char =~ /[a-z]/i
+      if need_upper
+        result += char.upcase
+      else
+        result += char.downcase
+      end
+      need_upper = !need_upper
+    else
+      result += char
+    end
+  end
+  result
+end
+def staggered_case(string)
+  result = ''
+  need_upper = true
+  string.chars.each do |char|
+    if char =~ /[a-z]/i
+      if need_upper
+        result += char.upcase
+      else
+        result += char.downcase
+      end
+      need_upper = !need_upper
+    else
+      result += char
+    end
+  end
+  result
 end
 
 =begin
