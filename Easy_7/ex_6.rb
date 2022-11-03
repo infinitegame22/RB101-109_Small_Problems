@@ -1,150 +1,64 @@
 =begin
-Modify the method from the previous exercise so it ignore non-
-alphabetic characters when determining whether it should 
-uppercase or lowercase each letter.  The non-alphabetic char's
-should still be included in the return value; they just don't
-count when toggling the desired case.
+Build from scratch a method so it ignores non-alphabetic characters when determining whether it should uppercase or lowercase each letter. The non-alphabetic characters should still be included in the return value; they just don't count when toggling the desired case.
 
-input:string
-output: string
+Goal: intake a string and switch the characters every other character from uppercase to lowercase while disregarding the non-alphabetic characters as part of the lowercase/uppercase switch.  They still need to be included in the return value.
 
-E: 'I Love Launch School!' == 'I lOvE lAuNcH sChOoL!'
-the characters don't count for toggling the desired case
-  - 'I' then ' ' then lowercase letter
+input: String
+output: new string 
+
+Rules:
+- switch case starting from the first letter being capitialized
+- skip over any non-alphabetic characters so they are not included in the every other sequence
+- non-alpha characters are still present in the return String
+
+E:
+('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 nUmBeRs'
+['i', 'g', 'n', 'o', 'r', 'e', ' ', '7', '7', ' ', 't'...]
+  0    1    2    3    4    5    -    -    -   -     6
+  T    F    T    F    T    F    T    T    T   T     T
 
 D: 
-input:string
-intermediate: array of characters
-output: string
+input: String
+intermediate: new string object to push into
+output: new string 
 
-A: 
-input:string `str`
-- initialize `char_array` to reference the input string broken into characters
-- intialize variable `upcase_char` and set to true
-- iterate over char_array using char as parameter
-  - if character matches any alphabetical characters and `non_alpha_char` is set to false
-    - upcase the character
-    - push the upcased 
-  - otherwise push the character into the `char_arr`
-  
+A:
+- initialize result as an empty String
+- initilialize an array of lowercase alphabet letters to compare against 
+- intialize variable `upcase_on` and set it to true
+- iterate over the array of characters created by splitting the intake into its characters
+  - if the character downcased is included in the alphabet_arr and the upcase_on is true
+    - push the current character upcased into the result String
+    - set alpha_char to opposite of current state 
+  - elsif the current character downcased is included in the alphabet_array and the upcase_on is off/false
+    - add the character downcased to the result String
+    - point the `upcase_on` to the opposite value
+  - elsif the character is not included in the alphabet Array
+    - push the character
+- return the result array
 
-
-
-A: initialize new string
-initialize new variable and assign it to `true`
-break string into characters and iterate over the array result
-IF character matches the letters a-z
-  - IF true
-    - add the upcased letter to the new string
-  - ELSE
-    - add the lowercased letter to the new string
-reassign true variable to the opposite of what it is.
-ELSE (characters non-alphabetical)
-  add the character to the new string
-return new string
-=end
-def staggered_case(string)
-  result = ''
-  need_upper = true
-  string.chars.each do |char|
-    if char =~ /[a-z]/i
-      if need_upper
-        result += char.upcase
-      else
-        result += char.downcase
-      end
-      need_upper = !need_upper
-    else
-      result += char
-    end
-  end
-  result
-end
-
-# Lucas'
-def staggered_case(string, ignore_non_alphabetic=true)
-  index_counter = 0
-
-  string.chars.each_with_object("") do |char, new_string|
-    index_counter.even? ? new_string << char.upcase : new_string << char.downcase
-
-    if ignore_non_alphabetic
-      index_counter += 1 unless char.match(/[\W_\d]/)
-    else
-      index_counter += 1
-    end
-  end
-end
-
-def staggered_case(string, ignore_non_alphabetic=true)
-  index_counter = 0
-
-  string.chars.each_with_object("") do |char, new_string|
-    index_counter.even? ? new_string << char.upcase : new_string << char.downcase
-
-    if ignore_non_alphabetic
-      index_counter += 1 unless char.match(/[\W_\d]/)
-    else
-    index_counter += 1
-    end
-  end
-end
-
-def staggered_case(string)
-  result = ''
-  need_upper = true
-  string.chars.each do |char|
-    if char =~ /[a-z]/i
-      if need_upper
-        result += char.upcase
-      else
-        result += char.downcase
-      end
-      need_upper = !need_upper
-    else
-      result += char
-    end
-  end
-  result
-end
-def staggered_case(string)
-  result = ''
-  need_upper = true
-  string.chars.each do |char|
-    if char =~ /[a-z]/i
-      if need_upper
-        result += char.upcase
-      else
-        result += char.downcase
-      end
-      need_upper = !need_upper
-    else
-      result += char
-    end
-  end
-  result
-end
-
-=begin
-This solution is very similar to the previouse solution;
-the only difference is that we need to avoid changing 
-`need_upper` when processing non-alphabetic characters.
-We use a simple regular expression with the `/i` flag
-(ignore case) to detect letters.
-
-  A flag is an optional parameter to a regex that modifies
-  its behavior of searching. A flag changes the default 
-  searching behavior of a regular expression. It makses a
-  regex search in a different way. A flag is denoted using
-  a single lowercase alphabetic character.
-
-  https://learnbyexample.github.io/Ruby_Regexp/modifiers.html
 =end
 
-staggered_case('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
-staggered_case('ALL CAPS') == 'AlL cApS'
-staggered_case('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 nUmBeRs'
+def staggered_case(str)
+  result = ''
+  alphabet = ('a'..'z').to_a
+  upcase_on = true
 
-str = 'cast'
-print "matched 's'" if str.match(/s/)
-print "matched 'x'" if str.match(/x/)
+  str.chars.each do |char|
+    char = char.downcase
+    if alphabet.include?(char) && upcase_on == true
+      result << char.upcase
+      upcase_on = !upcase_on
+    elsif alphabet.include?(char) && upcase_on == false
+      result << char
+      upcase_on = !upcase_on
+    else
+      result << char
+    end
+  end
+  result
+end
+
+p staggered_case('I Love Launch School!') == 'I lOvE lAuNcH sChOoL!'
+p staggered_case('ALL CAPS') == 'AlL cApS'
+p staggered_case('ignore 77 the 444 numbers') == 'IgNoRe 77 ThE 444 nUmBeRs'

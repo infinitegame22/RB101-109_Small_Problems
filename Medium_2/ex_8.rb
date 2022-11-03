@@ -31,15 +31,24 @@ featured(999_999_987) == 1_023_456_987
 D: 
 input: integer
 intermediate: incrementing by 7 from input integer
-output: integer
+output: integer, or error message
 
 A:
 input: integer `int` >> 21
-- divide intake integer by 7 and store in a variable `multiple` >> 3
-- product is initialized to 0
-- until product is odd and has unique integers (how do I check for unique digits?)
-  - add 1 to the `multiple` and multiply by 7 and store in product
+- return input number if the number modulus 7 is equivalent to 0 and is odd and if the unique digits are equivalent to the digits of the number
+- if num % 7 is equivalent to 0
+  - add 7 to the num
+  
+
+
+
+
 =end
+
+
+
+
+
 
 def featured(int)
   for num in (int + 1...9_999_999_999)

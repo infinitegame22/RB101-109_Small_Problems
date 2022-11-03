@@ -30,14 +30,8 @@ A:
 - return the sum 
 
 =end
-def sum_of_sums(arr)
-  sum = 0
-  arr.each do |num|
-    
-    sum += num
-  end
-end
-
+def sum_of_sums(numbers)
+  sum_total do
 
 
 
@@ -56,6 +50,14 @@ def sum_of_sums(arr)
     tiny_arr << sum += num # [3, 8, 10]
   end
   tiny_arr.sum
+end
+
+def sum_of_sums(array)
+  sum = 0
+  array.each_with_index do |num, index|
+    sum += ((array[0..index]).sum)
+  end
+  sum
 end
 
 p sum_of_sums([3, 5, 2]) #== (3) + (3 + 5) + (3 + 5 + 2) # -> (21)
