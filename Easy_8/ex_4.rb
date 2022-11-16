@@ -11,6 +11,50 @@ longest.
 Use the `leading_substrings` method
 =end
 
+
+=begin
+
+All Substrings
+
+Write a method that returns a list of all substrings of a string. The returned list should be ordered by where in the string the substring begins. This means that all substrings that start at position 0 should come first, then all substrings that start at position 1, and so on. Since multiple substrings will occur at each position, the substrings at a given position should be returned in order from shortest to longest.
+
+You may (and should) use the leading_substrings method you wrote in the previous exercise:
+
+Goal: intake a string and return a list (array) of all possible substrings of that string.  The array returned should be sorted based on the index position of the beginning letter of the substring and then from shortest to longest.
+
+input: String
+output: Array
+
+Rules:
+- returned array needs to be sorted by the index position of each starting letter of each substring (0-) and then shortest to longest sorting of the substrings made from that Index
+- only lowercase letters
+
+D:
+input: String
+intermediate: Array
+output: Array
+
+A:
+- intialize variable `substrings` to an empty Array
+- iterate over a range from 0 upto but not including the size of the String `st_idx`
+  - iterate over a range from current element up to but not including the size of the String `end_idx`
+    - using the st_idx upto and including the end_idx, slice the substrings from the input string and push them into the array object substrings
+- return the substrings array
+
+=end
+
+def substrings(string)
+  substrings = []
+  0.upto(string.size-1) do |st_idx|
+    st_idx.upto(string.size-1) do |end_idx|
+      substrings << string[st_idx..end_idx]
+    end
+  end
+  substrings
+end
+
+p substrings('abcde') #
+
 def leading_substrings(string)
   result =[]
   0.upto(string.size - 1) do |index|

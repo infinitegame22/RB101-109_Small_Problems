@@ -42,11 +42,13 @@ input: two arrays
   2. return product_array
 
 =end
-# product_array = []
-
-# ([3, 5, 7]).each_with_index do |ele1, ele2|
-#  p ele1 * ele2
-# end
+def multiply_list(arr1, arr2)
+  product_array = []
+  arr1.each_with_index do |el, idx|
+    product_array << el * arr2[idx]
+  end
+  product_array
+end
 
 # Chris 
 def multiply_list(arr1, arr2)

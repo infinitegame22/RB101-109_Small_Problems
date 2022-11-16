@@ -35,15 +35,6 @@ Goal: return an array of only those substrings that are palindromes
       True
     - false otherwise 
 
-- Main method: palidnromes 
-  - read the input string 
-    - call substrings helper on input string and store in a variable `subs`
-    - select from `subs` only those substrings that are longer than 1 char
-      - iterate over the newly created list of substrings 
-        - with each iteration, call is_palindrome? on each element ie) each substring 
-  - return only palindromic substrings 
-        
-
 
 =end
 
@@ -73,6 +64,42 @@ def palindromes(str)
   end
 end
 
+
+p palindromes('abcd') == []
+p palindromes('madam') == ['madam', 'ada']
+p palindromes('hello-madam-did-madam-goodbye') == [
+  'll', '-madam-', '-madam-did-madam-', 'madam', 'madam-did-madam', 'ada',
+  'adam-did-mada', 'dam-did-mad', 'am-did-ma', 'm-did-m', '-did-', 'did',
+  '-madam-', 'madam', 'ada', 'oo'
+]
+p palindromes('knitting cassettes') == [
+  'nittin', 'itti', 'tt', 'ss', 'settes', 'ette', 'tt'
+]
+
+=begin
+
+Write a method that returns a list of all substrings of a string that are palindromic. That is, each substring must consist of the same sequence of characters forwards as it does backwards. The return value should be arranged in the same sequence as the substrings appear in the string. Duplicate palindromes should be included multiple times.
+
+You may (and should) use the substrings method you wrote in the previous exercise.
+
+For the purposes of this exercise, you should consider all characters and pay attention to case; that is, "AbcbA" is a palindrome, but neither "Abcba" nor "Abc-bA" are. In addition, assume that single characters are not palindromes.
+
+ada  madam
+=end
+def substrings(str)
+  substrings = []
+  0.upto(str.size) do |st_idx|
+    st_idx.upto(str.size-1) do |end_idx|
+      substrings << str[st_idx..end_idx]
+    end
+  end
+  substrings
+end
+
+def palindromes(str)
+  substrings = substrings(str)
+  substrings.select {|substr| substr == substr.reverse && substr.size != 1 && !substr.empty?}
+end
 
 p palindromes('abcd') == []
 p palindromes('madam') == ['madam', 'ada']

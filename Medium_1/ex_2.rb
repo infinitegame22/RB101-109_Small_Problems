@@ -8,7 +8,41 @@ remove number at index location (use negative indexing)
 place as last number
 rejoin digits as an integer
 
+E:
+rotate_rightmost_digits(735291, 1) == 735291
+rotate_rightmost_digits(735291, 2) == 735219
+91 --> 19
+rotate_rightmost_digits(735291, 3) == 735912
+291 --> 912
+rotate_rightmost_digits(735291, 4) == 732915
+5291 --> 2915
+rotate_rightmost_digits(735291, 5) == 752913
+35291 --> 52913
+rotate_rightmost_digits(735291, 6) == 352917
+735291 --> 352917
+
+A:
+- find the -n character 
+- move that element to the back
+
+
+
+
+
 =end
+
+def rotate(arr)
+  arr[1..-1] + arr[0]
+end
+
+def rotate_rightmost_digits(int, n)
+  num_arr = int.digits.reverse
+  rotation = num_arr.pop(n)
+  backend = rotate(rotation)
+  num_arr << backend
+  num_arr.join.to_i
+end
+
 def rotate(array)
   n_array = array.dup
   n_array.push(n_array.shift)

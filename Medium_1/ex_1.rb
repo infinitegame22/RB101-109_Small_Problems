@@ -18,16 +18,24 @@ intermediate: storage array
 output: array
 
 A:
-- initialize rotated_arr to empty array
-- iterate over the intake array -->[7, 3, 5, 2, 9, 1]
-  - save the element at 0 index to a variable called `zero_index` --> 7
-  - for any number that is not the 0 index
-    - next if index is equivalent to 0
-    - otherwise push the element into a new array - rotated_arr --> [3, 5, 2, 9, 1]
-    - push the `zero_index` element into the rotated_arr --> [3, 5, 2, 9, 1, 7]
-- return the rotated_arr
+- initialize rotated_arr to a copy of the input array
+- remove elemnt 0
+- push element 0
+
+
+
+
+
 
 =end
+
+def rotate_array(arr)
+  rotated_arr = arr.dup
+  
+  first = rotated_arr.shift
+  rotated_arr << first
+end
+
 
 def rotate_array(arr)
   rotated_arr = []
